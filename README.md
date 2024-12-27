@@ -20,5 +20,4 @@ Example: If a person monthly salary is 25.000.000, then the calculation will be 
 Annual taxable income = 25.000.000 * 12 = 300.000.000
 Annual Tax on this Income = (50.000.000 * 5%) + (200.000.000 * 15%) + (50.000.000 * 25%) = 45.000.000
 
-Note: There's no non-taxable income stated above, assumed to simplify the calculation. For more information, visit 
-https://pajak.go.id/en/income-tax-calculation-mechanism-individual
+Note: There's no non-taxable income stated above, assumed to simplify the calculation
