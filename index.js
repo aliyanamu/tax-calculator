@@ -1,7 +1,7 @@
 const TAX_LAYERS = [
     { limit: 50000000, rate: 5 / 100 },
-    { limit: 250000000, rate: 15 / 100 },
-    { limit: 500000000, rate: 25 / 100 },
+    { limit: 200000000, rate: 15 / 100 },
+    { limit: 250000000, rate: 25 / 100 },
     { limit: Infinity, rate: 30 / 100 },
 ];
 
@@ -10,15 +10,18 @@ const rupiah = (number) => new Intl.NumberFormat('id-ID', { style: 'currency', c
 const calculateAnnualTax = (annualTaxableIncome) => {
     let remainingIncome = annualTaxableIncome;
     let totalTax = 0;
+    let descriptions = [];
 
     for (const { limit, rate } of TAX_LAYERS) {
         const taxableAmount = Math.min(remainingIncome, limit);
         totalTax += taxableAmount * rate;
         remainingIncome -= taxableAmount;
+        descriptions.push(`(${rupiah(taxableAmount)} * ${rate * 100}%)`);
 
         if (remainingIncome <= 0) break;
     }
 
+    console.log(`Calculation description: ${descriptions.join(' + ')}`);
     return totalTax;
 };
 
